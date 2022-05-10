@@ -1,12 +1,12 @@
 /********** Template CSS **********/
 :root {
-    --primary: #FEA116;
+    --primary: #e30713;
     --light: #F1F8FF;
     --dark: #0F172B;
 }
 
 .ff-secondary {
-    font-family: 'Pacifico', cursive;
+    font-family: 'Nunito','Pacifico', cursive;
 }
 
 .fw-medium {
@@ -25,7 +25,9 @@
     z-index: 99;
 }
 
-
+#name{
+    color: var(--primary);
+}
 /*** Spinner ***/
 #spinner {
     opacity: 0;
