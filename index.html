@@ -63,6 +63,7 @@
                         <a href="#rules" class="nav-item nav-link">Die Regeln</a>
                        <a href="#price" class="nav-item nav-link">Preise</a>
                         <a href="#menu" class="nav-item nav-link">Speisekarte</a>
+                        <a href="#menu-drink" class="nav-item nav-link">Getränkekarte</a>
                      <!--   <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu m-0">
@@ -81,7 +82,7 @@
                 <div class="container my-5 py-5">
                     <div class="row align-items-center g-5">
                         <div class="col-lg-6 text-center text-lg-start">
-                            <h1 class="display-3 text-white animated slideInLeft">Enjoy Our<br>Delicious Meal</h1>
+                            <h1 class="display-3 text-white animated slideInLeft">Oishii Wiesbaden</h1>
                             <p class="text-white animated slideInLeft mb-4 pb-2">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
                             <a href="" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Book A Table</a>
                         </div>
@@ -196,6 +197,109 @@
             </div>
         </div>
         <!-- Regeln End -->
+               <!-- Reservation Start -->
+               <div id="reservation" class="container-xxl py-5 px-0 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="row g-0">
+                    <div class="col-md-6">
+                        <div class="video">
+                            <button type="button" class="btn-play" data-bs-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-bs-target="#videoModal">
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-6 bg-dark d-flex align-items-center">
+                        <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
+                            <h5 class="section-title ff-secondary text-start text-primary fw-normal">Reservierung</h5>
+                            <h1 class="text-white mb-4">Reservieren Sie online</h1>
+                            <div id="success" class="testimonial-item bg-transparent border rounded p-4" style="display: none;">
+                                <div class="row g-3">
+                                    <div class="row align-items-center">
+                                        <p class="mx-auto" style=" font-weight: bolder; color: white;"  id="reservationComplete">
+                                            Ihre Reservierung war erfolgreich, checken Sie Ihr Email-Postfach!
+                                        </p>
+                                    </div>
+                            </div>
+                            </div>
+                            <div id="reservationForm" class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="firstName" placeholder="Vorname"  onclick="makeReservationVisible()">
+                                        <label for="firstname">Vorname</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="lastName" placeholder="Nachname"  onclick="makeReservationVisible()">
+                                        <label for="lastName">Nachname</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control" id="numberOfKids" placeholder="0"  onclick="makeReservationVisible()">
+                                        <label for="numberOfKids">Anzahl Kinder (unter 12 Jahren)</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control" id="numberOfPeople" placeholder="0"  onclick="makeReservationVisible()">
+                                        <label for="numberOfPeople">Anzahl Erwachsene</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control" id="eMail" placeholder="Email"  onclick="makeReservationVisible()">
+                                        <label for="eMail">Email</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating date">
+                                        <input type="datetime-local" class="form-control datetimepicker-input" id="dateTimeReservation" placeholder="Bitte wählen Sie das Datum und die Uhrzeit aus" onclick="makeReservationVisible()">
+                                        <label for="dateTimeReservation">Datum & Uhrzeit</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="phoneNumber" placeholder="Telefonnummer" />
+                                        <label for="phoneNumber">Telefonnummer</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="commentFromUser" placeholder="Besonderer Wunsch" />
+                                        <label for="commentFromUser">Besonderer Wunsch</label>
+                                    </div>
+                                </div>
+                                <p style="font-weight: bolder; margin-top: 6%"> <input type="checkbox" id="agbCheck" onclick="makeReservationVisible()"> Ich stimme den AGB und dem Datenschutz zu</p>
+                                <p style="font-weight: bolder; margin-top: 1%"> <input type="checkbox"> Ich möchte kostenlose Gutscheine per E-Mail erhalten </p>
+                                <div class="col-12">
+                                    <button id="reservationButton" style="display: none;" class="btn btn-primary w-100 py-3" type="submit"  onclick="makeReservation()">Jetzt Reservieren</button>
+                                </div>
+                                <div class="col-12">
+                                    <button id="loading" style="display: none;" class="btn btn-primary w-100 py-3" type="submit"  onclick="makeReservation()">Einen Moment</button>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content rounded-0">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Youtube Video</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- 16:9 aspect ratio -->
+                            <div class="ratio ratio-16x9">
+                                <iframe class="embed-responsive-item" src="" id="video" allowfullscreen allowscriptaccess="always"
+                                    allow="autoplay"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Reservation END -->
         <!-- Menu Start -->
         <div id="menu" class="container-xxl py-5">
             <div class="container">
@@ -427,88 +531,274 @@
             </div>
         </div>
         <!-- Menu End -->
-
-
-        <!-- Reservation Start -->
-        <div id="reservation" class="container-xxl py-5 px-0 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="row g-0">
-                <div class="col-md-6">
-                    <div class="video">
-                        <button type="button" class="btn-play" data-bs-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-bs-target="#videoModal">
-                            <span></span>
-                        </button>
-                    </div>
+        <!-- Menu Start -->
+        <div id="menu-drink" class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <h5 class="section-title ff-secondary text-center text-primary fw-normal">Menu</h5>
+                    <h1 class="mb-5">Getränkekarte</h1>
                 </div>
-                <div class="col-md-6 bg-dark d-flex align-items-center">
-                    <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
-                        <h5 class="section-title ff-secondary text-start text-primary fw-normal">Reservation</h5>
-                        <h1 class="text-white mb-4">Book A Table Online</h1>
-                        <form>
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                        <label for="name">Your Name</label>
-                                    </div>
+                <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <ul class="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
+                        <li class="nav-item">
+                            <a class="d-flex align-items-center text-start mx-3 ms-0 pb-3 active" data-bs-toggle="pill" href="#tab-1-drink">
+                                <i class="fa fa-glass-water fa-2x text-primary"></i>
+                                <div class="ps-3">
+                                    <h6 class="mt-n1 mb-0">Alkoholfreie Getränke</h6>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="email" class="form-control" id="email" placeholder="Your Email">
-                                        <label for="email">Your Email</label>
-                                    </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="d-flex align-items-center text-start mx-3 ms-0 pb-3" data-bs-toggle="pill" href="#tab-2-drink">
+                                <i class="fa fa-mug-hot fa-2x text-primary"></i>
+                                <div class="ps-3">
+                                    <h6 class="mt-n1 mb-0">Warme Getränke</h6>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating date" id="date3" data-target-input="nearest">
-                                        <input type="text" class="form-control datetimepicker-input" id="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
-                                        <label for="datetime">Date & Time</label>
-                                    </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="d-flex align-items-center text-start mx-3 ms-0 pb-3" data-bs-toggle="pill" href="#tab-3-drink">
+                                <i class="fa fa-beer-mug-empty fa-2x text-primary"></i>
+                                <div class="ps-3">
+                                    
+                                    <h6 class="mt-n1 mb-0">Bier, Wein & Sekt</h6>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <select class="form-select" id="select1">
-                                          <option value="1">People 1</option>
-                                          <option value="2">People 2</option>
-                                          <option value="3">People 3</option>
-                                        </select>
-                                        <label for="select1">No Of People</label>
-                                      </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="d-flex align-items-center text-start mx-3 ms-0 pb-3" data-bs-toggle="pill" href="#tab-4-drink">
+                                <i class="fa fa-martini-glass fa-2x text-primary"></i>
+                                <div class="ps-3">
+                                    
+                                    <h6 class="mt-n1 mb-0">Spirituosen & Cocktails</h6>
                                 </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <textarea class="form-control" placeholder="Special Request" id="message" style="height: 100px"></textarea>
-                                        <label for="message">Special Request</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" type="submit">Book Now</button>
-                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="tab-1-drink" class="tab-pane fade show p-0 active">
+                            <div class='row g-4'>
+                                <!-- START Tab 1 Alkoholfreies-->
+                                <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/320.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Mineralwasser Selters Classic 0,25l</span><span class='text-primary'>2,7</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/321.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Mineralwasser Selters Classic 0,75l</span><span class='text-primary'>6,1</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/322.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Mineralwasser Selters Naturell 0,25l</span><span class='text-primary'>2,7</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/323.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Mineralwasser Selters Naturell 0,75l</span><span class='text-primary'>6,1</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/324.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Cola 0,2l</span><span class='text-primary'>2,6</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/325.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Cola 0,4l</span><span class='text-primary'>3,95</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/326.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Cola light 0,2l</span><span class='text-primary'>2,6</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/327.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Cola light 0,4l</span><span class='text-primary'>3,95</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/328.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Cola zero 0,2l</span><span class='text-primary'>2,6</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/329.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Cola zero 0,4l</span><span class='text-primary'>3,95</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/330.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Fanta 0,2l</span><span class='text-primary'>2,6</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/331.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Fanta 0,4l</span><span class='text-primary'>3,95</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/332.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Sprite 0,2l</span><span class='text-primary'>2,6</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/333.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Sprite 0,4l</span><span class='text-primary'>3,95</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/334.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Cola mix 0,2l</span><span class='text-primary'>2,6</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/335.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Cola mix 0,4l</span><span class='text-primary'>3,95</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/336.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Apfelschorle 0,2l</span><span class='text-primary'>2,6</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/337.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Apfelschorle 0,4l</span><span class='text-primary'>3,95</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/338.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Mangoschorle 0,2l</span><span class='text-primary'>2,6</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/339.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Mangoschorle 0,4l</span><span class='text-primary'>3,95</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/340.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Maracujaschorle 0,2l</span><span class='text-primary'>2,6</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/341.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Maracujaschorle 0,4l</span><span class='text-primary'>3,95</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/342.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Rhabarberschorle 0,2l</span><span class='text-primary'>2,6</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/343.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Rhabarberschorle 0,4l</span><span class='text-primary'>3,95</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/344.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Litschischorle 0,4l</span><span class='text-primary'>4,5</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/345.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Apfelsaft 0,2l</span><span class='text-primary'>2,7</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/346.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Orangensaft 0,2l</span><span class='text-primary'>2,7</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/347.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>BananenNektar 0,2l</span><span class='text-primary'>2,7</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/348.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Kirschsaft 0,2l</span><span class='text-primary'>2,7</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/349.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Mangosaft 0,2l</span><span class='text-primary'>2,7</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/350.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Maracujasaft 0,2l</span><span class='text-primary'>2,7</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/351.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>KiBa 0,2l</span><span class='text-primary'>2,7</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/352.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>KiBa 0,4l</span><span class='text-primary'>3,95</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/353.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Ice Tea Pfirsich 0,2l</span><span class='text-primary'>2,7</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/354.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Ice Tea Pfirsich 0,4l</span><span class='text-primary'>3,95</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/355.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Ice Tea Zitrone 0,2l</span><span class='text-primary'>2,7</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/356.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Ice Tea Zitrone 0,4l</span><span class='text-primary'>3,95</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/357.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Arizona Green Iced Tea 0,47l</span><span class='text-primary'>4,95</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/358.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Arizona Pomegranate Iced Tea 0,47l</span><span class='text-primary'>4,95</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/359.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Orangina Classic 0,25l</span><span class='text-primary'>2,95</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/360.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Bitter Lemon 0,2l</span><span class='text-primary'>2,7</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/361.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Bitter Lemon 0,4l</span><span class='text-primary'>3,95</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/362.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Ginger Ale 0,2l</span><span class='text-primary'>2,7</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/363.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Ginger Ale 0,4l</span><span class='text-primary'>3,95</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/364.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Tonic Water 0,2l</span><span class='text-primary'>2,7</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/365.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Tonic Water 0,4l</span><span class='text-primary'>3,95</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/366.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Russian Wild Berry 0,2l</span><span class='text-primary'>2,7</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/367.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Spicy Ginger B. 0,2l</span><span class='text-primary'>2,9</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/396.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Krombacher Fassbrause Zitrone 0,33l</span><span class='text-primary'>3,8</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/397.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Krombacher Fassbrause Holunder 0,33l</span><span class='text-primary'>3,8</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/398.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Krombacher Fassbrause Apfel 0,33l</span><span class='text-primary'>3,8</span></h5><small class='fst-italic'></small></div></div></div>
+                              <!-- END Tab-1-->
                             </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content rounded-0">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Youtube Video</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <!-- 16:9 aspect ratio -->
-                        <div class="ratio ratio-16x9">
-                            <iframe class="embed-responsive-item" src="" id="video" allowfullscreen allowscriptaccess="always"
-                                allow="autoplay"></iframe>
+                        </div>
+                        <div id="tab-2-drink" class="tab-pane fade show p-0">
+                            <div class="row g-4">
+                                <!-- START Tab-2 Warme Getränke-->
+                                <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/433.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Green Tea Ocha</span><span class='text-primary'>2,7</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/434.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Jasmin Tee</span><span class='text-primary'>2,7</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/435.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Tee</span><span class='text-primary'>2,7</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/436.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Frischer Pfefferminz Tee</span><span class='text-primary'>2,95</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/437.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Frischer Ingwertee</span><span class='text-primary'>2,95</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/438.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Lavazza Espresso</span><span class='text-primary'>2,7</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/439.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Lavazza Espresso doppelt</span><span class='text-primary'>3,8</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/440.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Lavazza Espresso Macchiato</span><span class='text-primary'>2,8</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/441.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Lavazza Café Crema</span><span class='text-primary'>2,7</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/442.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Lavazza Cappuccino</span><span class='text-primary'>2,95</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/443.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Lavazza Latte Macchiato</span><span class='text-primary'>3,2</span></h5><small class='fst-italic'></small></div></div></div>
+<div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/444.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Lavazza Latte Machiato Caramel</span><span class='text-primary'>3,5</span></h5><small class='fst-italic'></small></div></div></div>
+                                <!-- END Tab-2-->                            
+                            </div>
+                        </div>
+                        <div id="tab-3-drink" class="tab-pane fade show p-0">
+                            <div class="row g-4">
+                            <!-- START Tab-3 Bier, Wein & Sekt-->
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/368.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Kirin vom Fass 0,25l</span><span class='text-primary'>3,1</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/369.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Kirin vom Fass 0,5l</span><span class='text-primary'>4,95</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/370.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Weizen Hefe vom Fass 0,3l</span><span class='text-primary'>3</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/371.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Weizen Hefe vom Fass 0,5l</span><span class='text-primary'>4,4</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/372.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Rhenania Alt von Fass 0,25l</span><span class='text-primary'>2,8</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/373.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Rhenania Alt von Fass 0,4l</span><span class='text-primary'>4,2</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/374.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Krombacher vom Fass 0,25l</span><span class='text-primary'>2,8</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/375.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Krombacher vom Fass 0,4l</span><span class='text-primary'>4,2</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/376.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Alster 0,25l</span><span class='text-primary'>2,8</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/377.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Alster 0,4l</span><span class='text-primary'>4,2</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/378.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Radler 0,25l</span><span class='text-primary'>2,8</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/379.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Radler 0,4l</span><span class='text-primary'>4,2</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/380.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Krefelder 0,25l</span><span class='text-primary'>2,8</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/381.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Krefelder 0,4l</span><span class='text-primary'>4,2</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/382.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>AltSchuss 0,25l</span><span class='text-primary'>2,8</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/383.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>AltSchuss 0,4l</span><span class='text-primary'>4,2</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/384.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Krombacher Weizen AF 0,5l</span><span class='text-primary'>4,1</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/385.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Krombacher Radler AF 0,33l</span><span class='text-primary'>3,1</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/386.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Krombacher AF 0,33l</span><span class='text-primary'>3</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/387.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Vita Malz Malzbier 0,33l</span><span class='text-primary'>3</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/388.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Gaffel Koelsch vom Fass 0,25l</span><span class='text-primary'>2,8</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/389.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Gaffel Koelsch vom Fass 0,4l</span><span class='text-primary'>4,2</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/390.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Alster 0,25l</span><span class='text-primary'>2,8</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/391.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Alster 0,4l</span><span class='text-primary'>4,2</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/392.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Radler 0,25l</span><span class='text-primary'>2,8</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/393.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Radler 0,4l</span><span class='text-primary'>4,2</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/394.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Drecksack 0,25l</span><span class='text-primary'>2,8</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/395.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Drecksack 0,4l</span><span class='text-primary'>4,2</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/466.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Okinii Riesling 0,1l</span><span class='text-primary'>3,95</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/467.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Okinii Riesling 0,75l</span><span class='text-primary'>24,9</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/468.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Prosecco Col de Mez Valdobbiadene 0,1l</span><span class='text-primary'>4,6</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/469.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Prosecco Col de Mez Valdobbiadene 0,75l</span><span class='text-primary'>26,9</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/470.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Grauburgunder 0,2l</span><span class='text-primary'>5,9</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/471.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Terra Blanc Sauvignon Blanc 0,2l</span><span class='text-primary'>5,8</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/472.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Riesling 0,2l</span><span class='text-primary'>6,8</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/473.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Limne, Lugana 0,2l</span><span class='text-primary'>6,9</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/474.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Chardonnay 0,2l</span><span class='text-primary'>5,9</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/475.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Weissweinschorle 0,2l</span><span class='text-primary'>4,5</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/476.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Terra Noir Portugieser Rose 0,2l</span><span class='text-primary'>5,9</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/477.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Terra Noir Spaetburgunder 0,2l</span><span class='text-primary'>5,9</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/478.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Cabernet Sauvignon 0,2l</span><span class='text-primary'>5,8</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/479.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Cabernet Single Valley Lot 0,2l</span><span class='text-primary'>7,9</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/480.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Grauburgunder 0,75l</span><span class='text-primary'>26,5</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/481.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Aufwind Weissburgunder Chardonnay 0,75l</span><span class='text-primary'>25,9</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/482.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Terra Blanc Sauvignon Blanc 0,75l</span><span class='text-primary'>19,9</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/483.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Chardonnay 0,75l</span><span class='text-primary'>19,9</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/484.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Limne Lugana 0,75l</span><span class='text-primary'>24,5</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/485.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Riesling Robert Weil 0,75l</span><span class='text-primary'>29,5</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/486.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Terra Noir Portugieser Rose Pfalz Brogsitter 0,75l</span><span class='text-primary'>21,5</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/487.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Terra Noir Spaetburgunder 0,75l</span><span class='text-primary'>21,5</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/488.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Mosaik Cabernet Merlot 0,75l</span><span class='text-primary'>19,9</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/489.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Candidato Tempranillo Barrique 0,75l</span><span class='text-primary'>23,9</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/490.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Cabernet Sauvignon 0,75l</span><span class='text-primary'>29,5</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/491.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Moet Chandon Brut Imperial 0,75l</span><span class='text-primary'>54</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/492.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Moet Chandon Rose Imperial 0,75l</span><span class='text-primary'>59</span></h5><small class='fst-italic'></small></div></div></div>
+                            <!-- END Tab-3-->
+                            </div>
+                        </div>
+                        <div id="tab-4-drink" class="tab-pane fade show p-0">
+                            <div class="row g-4">
+                            <!-- START Tab 4 SIDES-->
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/300.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Martini Bianco 4 cl</span><span class='text-primary'>4,6</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/301.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Campari 4 cl</span><span class='text-primary'>4,6</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/302.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Campari Soda 0,2l</span><span class='text-primary'>6,6</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/303.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Okinii Riesling Sekt 0,1l</span><span class='text-primary'>3,95</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/304.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Prosecco Col de Mez Valdobbiadene 0,1l</span><span class='text-primary'>4,6</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/305.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Kir Royal 0,15</span><span class='text-primary'>6,6</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/306.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Aperol 4 cl</span><span class='text-primary'>4,6</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/307.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Aperol Spritz 0,2l</span><span class='text-primary'>6,95</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/308.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Hugo 0,2l</span><span class='text-primary'>6,95</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/309.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Hugo Razzberry 0,2l</span><span class='text-primary'>6,95</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/310.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Lillet Vive 0,2l</span><span class='text-primary'>7,4</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/311.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Japanischer Pflaumenwein 4 cl</span><span class='text-primary'>4,6</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/312.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Cremant 0,1l</span><span class='text-primary'>5,1</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/313.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Okinii Riesling Sekt 0,75l</span><span class='text-primary'>24,9</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/314.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Prosecco Col de Mez Valdobbiadene DOCG 0,75l</span><span class='text-primary'>26,9</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/315.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Martini Rosso 4 cl</span><span class='text-primary'>4,6</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/316.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Campari Orange 0,2l</span><span class='text-primary'>6,6</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/317.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Sake Standard 10 cl</span><span class='text-primary'>4,95</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/318.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Sake Extra Dry 10 cl</span><span class='text-primary'>7,95</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/319.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Sake Premium 10 cl</span><span class='text-primary'>10,95</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/399.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Gin Tonic 0,2l</span><span class='text-primary'>6,8</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/400.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Gin Tonic 0,4l</span><span class='text-primary'>7,5</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/401.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Gin Tonic 0,2l</span><span class='text-primary'>8,2</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/402.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Gin Tonic 0,2l</span><span class='text-primary'>8,6</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/403.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Vodka Lemon 0,2l</span><span class='text-primary'>6,8</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/404.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Vodka Tonic 0,2l</span><span class='text-primary'>6,8</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/405.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Whisky Cola 0,2l</span><span class='text-primary'>8,8</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/406.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Whisky Cola 0,2l</span><span class='text-primary'>7,3</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/407.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Whisky Ginger Ale 0,2l</span><span class='text-primary'>7,6</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/408.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Campari Soda / Orange 0,2l</span><span class='text-primary'>6,6</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/409.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Jameson 4 cl</span><span class='text-primary'>5,9</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/410.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Jack Daniel's 4 cl</span><span class='text-primary'>5,6</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/411.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Johnnie Walker Black Label 4 cl</span><span class='text-primary'>7,3</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/412.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Glenfiddich 12 Years Speyside 4 cl</span><span class='text-primary'>6,6</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/413.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>The Macallan 12 Years Speyside 4 cl</span><span class='text-primary'>12,75</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/414.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Smirnoff Red Label 4 cl</span><span class='text-primary'>4,9</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/415.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Absolut 4 cl</span><span class='text-primary'>5,6</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/416.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Gordon's Gin 4 cl</span><span class='text-primary'>5,1</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/417.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Beefeater 4 cl</span><span class='text-primary'>5,8</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/418.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Bombay Sapphire 4 cl</span><span class='text-primary'>6,6</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/419.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Hendricks 4 cl</span><span class='text-primary'>6,95</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/420.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Havana Club Rum Anejo 3 Jahre 4 cl</span><span class='text-primary'>4,9</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/421.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Ron Varadero 7 Jahre 4 cl</span><span class='text-primary'>7</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/422.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Malteser Aquavit 2 cl</span><span class='text-primary'>3,3</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/423.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Jaegermeister 2 cl</span><span class='text-primary'>3,1</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/424.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Sambuca Molinari 2 cl</span><span class='text-primary'>3,1</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/425.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Bailey's 4 cl</span><span class='text-primary'>4,9</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/426.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Grappa di Chardonnay 2 cl</span><span class='text-primary'>3,9</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/427.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Ramazotti 4 cl</span><span class='text-primary'>4,9</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/428.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Averna 4 cl</span><span class='text-primary'>4,9</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/429.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Tequila Cuervo Espezial Gold 2 cl</span><span class='text-primary'>3,1</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/430.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Reisschnaps 2 cl</span><span class='text-primary'>3,9</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/431.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>SuesskartoffelnShochu 2 cl</span><span class='text-primary'>4</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/432.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Kwai Feh Lychee Liqueur 2 cl</span><span class='text-primary'>3,3</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/445.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Cuba Libre</span><span class='text-primary'>7,1</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/446.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Mojito</span><span class='text-primary'>7,6</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/447.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Green Apple Mojito</span><span class='text-primary'>7,6</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/448.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Mr. Okinii</span><span class='text-primary'>7,9</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/449.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Pina Colada</span><span class='text-primary'>7,6</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/450.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Caipirinha</span><span class='text-primary'>7,3</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/451.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Frozen Strawberry Daiquiri</span><span class='text-primary'>8,3</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/452.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Raspberry Razz</span><span class='text-primary'>7,9</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/453.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Sex on the Beach</span><span class='text-primary'>7,6</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/454.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Mai Tai</span><span class='text-primary'>8,1</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/455.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Cosmopolitan</span><span class='text-primary'>7,3</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/456.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Pink Elephant</span><span class='text-primary'>7,3</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/457.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Heartbreaker</span><span class='text-primary'>7,7</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/458.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Okinii Gin Gin Mule</span><span class='text-primary'>7,1</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/459.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Frozen Wild Berry Daiquiri</span><span class='text-primary'>8,3</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/460.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Virgin Colada</span><span class='text-primary'>5,95</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/461.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Promille Null</span><span class='text-primary'>6,4</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/462.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Virgin Strawberry Daiquirie</span><span class='text-primary'>6,6</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/463.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Ipanema</span><span class='text-primary'>6,2</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/464.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Safe drive home</span><span class='text-primary'>5,95</span></h5><small class='fst-italic'></small></div></div></div>
+                            <div class='col-lg-6'><div class='d-flex align-items-center'> <img class='flex-shrink-0 img-fluid rounded' src='img/drink/465.png' alt='' style='width: 80px;'><div class='w-100 d-flex flex-column text-start ps-4'><h5 class='d-flex justify-content-between border-bottom pb-2'><span>Solero</span><span class='text-primary'>6,6</span></h5><small class='fst-italic'></small></div></div></div>
+                            <!-- END Tab 4-->
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Reservation Start -->
-
-
+        <!-- Menu End -->
+      
         <!-- Team Start -->
         <div id="price" class="container-xxl pt-5 pb-3">
             <div class="container">
@@ -711,6 +1001,145 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <script src="js/custom.js"></script>
+
+<script>
+    const BASE_URL = "https://server.gaikai.xyz:8888"
+    window.addEventListener('load', () => {
+        const now = new Date();
+        now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+        now.setMonth(now.getMonth()+1)
+        //console.log(now.toISOString())
+        if(now.getMonth() < 10)
+            today = now.getFullYear()+'-0'+now.getMonth()+'-'+now.getDate()+'T'+'08:50';
+        else
+            today = now.getFullYear()+'-'+now.getMonth()+'-'+now.getDate()+'T'+'08:50';
+        console.log(today.valueOf())
+        document.getElementById('dateTimeReservation').value = today
+    });
+
+
+    class Reservation {
+        constructor(email,reservationDate, numberOfPeople, numberOfKids,  timestamp, phoneNumber, commentFromGuestUser, firstName, lastName) {
+            this.id = 0;
+            this.guestUserID = email;
+            this.reservationDate = reservationDate;
+            this.numberOfPeople = numberOfPeople;
+            this.numberOfKids = numberOfKids;
+            this.haveArrived = false
+            this.timestamp = timestamp;
+            this.phoneNumber = phoneNumber;
+            this.commentFromGuestUser = commentFromGuestUser;
+            this.firstName = firstName;
+            this.lastName = lastName;
+        }
+
+
+    }
+
+
+
+    //POST HTTP on Backend
+    function makeReservation()
+    {
+        loading(true);
+        let url = BASE_URL+"/api/ReservationService/noAuth/"+document.getElementById("agbCheck").checked;
+        console.log(url);
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", url);
+
+        xhr.setRequestHeader("Accept", "application/json");
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                console.log(xhr.responseText);
+                var reservation = JSON.parse(xhr.responseText);
+                console.log(reservation)
+                if (reservation.id != -1) {
+                    loading(false);
+                    makeSuccessVisible()
+
+                }
+            }
+        };
+
+        const id = 0;
+        const guestUserID = document.getElementById("eMail").value;
+        let reservationDate = document.getElementById("dateTimeReservation").value;
+        let numberOfPeople = document.getElementById("numberOfPeople").value;
+        let numberOfKids = document.getElementById("numberOfKids").value;
+        const haveArrived = false;
+        const timestamp = "";
+        let phoneNumber = document.getElementById("phoneNumber").value;
+        let commentFromGuestUser = document.getElementById("commentFromUser").value;
+        let firstName = document.getElementById("firstName").value;
+        let lastName = document.getElementById("lastName").value;
+        let reservation = new Reservation(guestUserID, reservationDate, numberOfPeople, numberOfKids,
+            timestamp, phoneNumber, commentFromGuestUser, firstName, lastName);
+        let reservationJSON = JSON.stringify(reservation);
+        xhr.send(reservationJSON);
+
+
+    }
+
+    function loading(boolean){
+        if(boolean){
+            document.getElementById("loading").style.display = 'block'
+            document.getElementById("reservationButton").style.display = 'none';
+        }else{
+            document.getElementById("loading").style.display = 'none'
+        }
+
+    }
+
+    function makeReservationVisible() {
+        console.log("ACTIVATE")
+        var reservationButton = document.getElementById("reservationButton");
+        console.log(checkIfInputFilled())
+        if (checkIfInputFilled()) {
+            reservationButton.style.display = 'block';
+            reservationButton.style.marginTop = '4%'
+            reservationButton.classList.add('btn_1','mx-auto');
+        }else {
+            reservationButtonSettings = 'none';
+        }
+
+    }
+
+    function makeSuccessVisible(){
+        document.getElementById("reservationForm").style.display = 'none'
+        document.getElementById("reservationComplete").style.display = 'block'
+        document.getElementById("success").style.display = 'block';
+
+    }
+
+    function checkIfInputFilled(){
+        var numberOfFilledInputBox = 0;
+        if(document.getElementById("eMail").value !== "")
+            numberOfFilledInputBox++;
+        if(document.getElementById("numberOfPeople").value !== "")
+            numberOfFilledInputBox++;
+        if(document.getElementById("numberOfKids").value !== "")
+            numberOfFilledInputBox++;
+        if(document.getElementById("phoneNumber").value !== "")
+            numberOfFilledInputBox++;
+        /*        console.log("Checkbox coming")
+                console.log(document.getElementById("agbCheck").checked);*/
+        return numberOfFilledInputBox >= 3 && document.getElementById("agbCheck").checked;
+
+    }
+    function isGuestUser(){
+
+        var email = document.getElementById("eMail").value;
+        if(email == "")
+            return false;
+        else{
+            var restURL = BASE_URL+""
+        }
+    }
+</script>
 </body>
 
 </html>
