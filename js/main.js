@@ -66,6 +66,10 @@
         $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
         return false;
     });
+    $('.cookie-banner').fadeIn('slow');
+    $(window).scroll(function () {
+            
+    });
 
 
     // Facts counter
