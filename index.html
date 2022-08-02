@@ -1084,19 +1084,19 @@
     }
 
     function checkIfStopped(){
-        //let url = BASE_URL+"/api/ReservationService/noAuth/stoppedByAdmin";
-        //console.log(url);
-    //    let xhr = new XMLHttpRequest();
-      //  xhr.open("GET", url);
-        // xhr.send();
-        //xhr.onreadystatechange = function () {
-          //  console.log(xhr.responseText)
-            //if(xhr.responseText=="true"){
+        let url = BASE_URL+"/api/ReservationService/noAuth/stoppedByAdmin";
+        console.log(url);
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", url);
+        xhr.send();
+        xhr.onreadystatechange = function () {
+            console.log(xhr.responseText)
+            if(xhr.responseText=="true"){
                 console.log("did it")
                 document.getElementById("failure").style.display="block";
                 document.getElementById("reservationForm").style.display = 'none'
-            //}
-        //}
+            }
+        }
 
 
     }
