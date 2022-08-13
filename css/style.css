@@ -167,6 +167,17 @@
     background-size: cover;
 }
 
+.red-text {
+    color: red;
+}
+
+.application-Hero-Header {
+    background: url(../img/work.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .hero-header img {
     animation: imgRotate 50s linear infinite;
 }
