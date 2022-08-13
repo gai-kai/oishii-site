@@ -98,6 +98,7 @@
                             <p>Diverse einfache Tätigkeiten in der Küche</p>
                             <br>
                             <br>
+                            <button  class="btn btn-primary w-100 py-3" style="background-color: darkblue" type="submit"  onclick="sendMail('Küche')">Jetzt bewerben</button>
                         </div>
                     </div>
                 </div>
@@ -110,6 +111,9 @@
                                 <li>Tischen putzen</li>
                                 <li>Tischen abräumen</li>
                                 <li>Tische vorbereiten</li>
+                                <br>
+                                <button class="btn btn-primary w-100 py-3" style="background-color: darkblue" type="submit" onclick="sendMail('Service')">Jetzt bewerben</button>
+
                             </ul>
                         </div>
                     </div>
@@ -117,10 +121,8 @@
             </div>
         </div>
     </div>
-    <h3>Klicke den unteren Button, um dich für die offenen Stellen per E-Mail zu bewerben</h3>
-    <div class="col-2">
-        <button id="sendMailApplication" class="btn btn-primary w-100 py-3" onclick="sendMail()">Bewerben</button>
-    </div>
+
+
     <!-- Regeln End -->
 
 
@@ -199,9 +201,9 @@
 <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 <script src="js/main.js"></script>
 <script>
-    function sendMail() {
-
-        window.open('mailto:test@example.com?subject=Bewerbung');
+    function sendMail(applicationNr) {
+        mailString = 'mailto:kontakt@oishii-wiesbaden.de?subject=Bewerbung_' + applicationNr
+        window.open(mailString);
     }
 </script>
 
