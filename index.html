@@ -1033,13 +1033,13 @@
     var defaultDate
     const BASE_URL = "https://server.gaikai.xyz:8888"
     const weekDayOpenHours = [
-        ["16:30", "21:30"],
-        ["16:30", "21:30"],
-        ["16:30", "21:30"],
-        ["16:30", "21:30"],
-        ["12:00", "21:30"],
-        ["12:00", "21:30"],
         ["12:30", "21:30"],
+        ["16:30", "21:30"],
+        ["16:30", "21:30"],
+        ["16:30", "21:30"],
+        ["16:30", "21:30"],
+        ["12:00", "21:30"],
+        ["12:00", "21:30"],
     ];
     //import {BootstrapCookieConsentSettings} from "bootstrap-cookie-consent-settings"
     this.props = {
@@ -1150,12 +1150,13 @@
         let month = dateTimeValue.getMonth() +1
         let fullCalenderDate = dateTimeValue.getFullYear()+'-'+month+'-'+dateTimeValue.getDate()
         //2022-08-16T08:50
+        let test = dateTimeValue.getDay()
         let minOpeningHours = new Date(fullCalenderDate+" "+weekDayOpenHours[dateTimeValue.getDay()][0])
         let maxOpeningHours = new Date(fullCalenderDate+" "+weekDayOpenHours[dateTimeValue.getDay()][1])
         let userSelectedTime = dateTimeValue.getTime()
         if(userSelectedTime <= minOpeningHours.getTime() || userSelectedTime >= maxOpeningHours.getTime()) {
             document.getElementById("invalidTimeSign").style.display = "block"
-
+            document.getElementById("agbCheck").checked = false
             return false
         }
         else{
