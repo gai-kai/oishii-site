@@ -283,46 +283,47 @@
                             </p>
                         </div>
                     </div></div>
+                <!-- START Reservation FORM -->
                 <div id="reservationForm" class="row g-3">
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input type="text" class="form-control" id="firstName" placeholder="Vorname"  onclick="makeReservationVisible()">
+                            <input type="text" class="form-control" id="firstName" placeholder="Vorname" onblur="makeReservationVisible()">
                             <label for="firstname">Vorname</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input type="text" class="form-control" id="lastName" placeholder="Nachname"  onclick="makeReservationVisible()">
+                            <input type="text" class="form-control" id="lastName" placeholder="Nachname"  onblur="makeReservationVisible()">
                             <label for="lastName">Nachname</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input type="number" class="form-control" id="numberOfKids" placeholder="0"  onclick="makeReservationVisible()">
+                            <input type="number" class="form-control" id="numberOfKids" placeholder="0"  onblur="makeReservationVisible()">
                             <label for="numberOfKids">Anzahl Kinder (unter 11 Jahren)</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input type="number" class="form-control" id="numberOfPeople" placeholder="0"  onclick="makeReservationVisible()">
+                            <input type="number" class="form-control" id="numberOfPeople" placeholder="0" onblur="makeReservationVisible()">
                             <label for="numberOfPeople">Anzahl Erwachsene</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input type="email" class="form-control" id="eMail" placeholder="Email"  onclick="makeReservationVisible()">
+                            <input type="email" class="form-control" id="eMail" placeholder="Email" onblur="makeReservationVisible()">
                             <label for="eMail">Email</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating date">
-                            <input type="datetime-local" class="form-control datetimepicker-input" id="dateTimeReservation" placeholder="Bitte wählen Sie das Datum und die Uhrzeit aus" onclick="makeReservationVisible()">
+                            <input type="datetime-local" class="form-control datetimepicker-input" id="dateTimeReservation"  placeholder="Bitte wählen Sie das Datum und die Uhrzeit aus" onblur="makeReservationVisible()">
                             <label for="dateTimeReservation">Datum & Uhrzeit</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input type="text" class="form-control" id="phoneNumber" placeholder="Telefonnummer" />
+                            <input type="text" class="form-control" id="phoneNumber"  placeholder="Telefonnummer" />
                             <label for="phoneNumber">Telefonnummer</label>
                         </div>
                     </div>
@@ -332,15 +333,21 @@
                             <label for="commentFromUser">Besonderer Wunsch</label>
                         </div>
                     </div>
-                    <p style="font-weight: bolder; margin-top: 6%"> <input type="checkbox" id="agbCheck" onclick="makeReservationVisible()"> Ich stimme den <a href=datenschutz.html">AGB</a> und dem Datenschutz zu</p>
-                    <p style="font-weight: bolder; margin-top: 1%"> <input type="checkbox"> Ich möchte kostenlose Gutscheine per E-Mail erhalten </p>
                     <div class="col-12">
-                        <button id="reservationButton" style="display: none;" class="btn btn-primary w-100 py-3" type="submit"  onclick="makeReservation()">Jetzt Reservieren</button>
+                        <p id="invalidTimeSign"class="ff-secondary text-primary fw-normal" style="display:none;">Die angegeben Zeit ist ungültig. Bitte lesen Sie unsere Öffnungszeiten nochmal durch und vergewissern Sie sich, dass Sie ein korrektes Datum und eine gültige Uhrzeit angeben</p>
+                    </div>
+                    <p style="font-weight: bolder; margin-top: 6%"> <input  type="checkbox" id="agbCheck" onclick="makeReservationVisible()"> Ich stimme den <a href=datenschutz.html">AGB</a> und dem Datenschutz zu</p>
+                    <p style="font-weight: bolder; margin-top: 1%"> <input type="checkbox"> Ich möchte kostenlose Gutscheine per E-Mail erhalten </p>
+
+                    <div class="col-12">
+                        <button id="reservationButton" style="display: none;" class="btn btn-primary w-100 py-3" type="submit" onclick="makeReservation()">Jetzt Reservieren</button>
                     </div>
                     <div class="col-12">
-                        <button id="loading" style="display: none;" class="btn btn-primary w-100 py-3" type="submit"  onclick="makeReservation()">Einen Moment</button>
+                        <button id="loading" style="display: none;" class="btn btn-primary w-100 py-3" type="submit"  >Einen Moment</button>
                     </div>
                 </div>
+                <!-- END Reservation FORM-->
+
             </div>
         </div>
     </div>
@@ -1023,7 +1030,17 @@
 <script src="js/custom.js"></script>
 
 <script>
+    var defaultDate
     const BASE_URL = "https://server.gaikai.xyz:8888"
+    const weekDayOpenHours = [
+        ["16:30", "21:30"],
+        ["16:30", "21:30"],
+        ["16:30", "21:30"],
+        ["16:30", "21:30"],
+        ["12:00", "21:30"],
+        ["12:00", "21:30"],
+        ["12:30", "21:30"],
+    ];
     //import {BootstrapCookieConsentSettings} from "bootstrap-cookie-consent-settings"
     this.props = {
         autoShowDialog: true, // disable autoShowModal on the privacy policy and legal notice pages, to make these pages readable
@@ -1061,11 +1078,12 @@
         now.setMonth(now.getMonth()+1)
         //console.log(now.toISOString())
         if(now.getMonth() < 10)
-            today = now.getFullYear()+'-0'+now.getMonth()+'-'+now.getDate()+'T'+'08:50';
+            today = now.getFullYear()+'-0'+now.getMonth()+'-'+now.getDate()+'T'+'06:00';
         else
-            today = now.getFullYear()+'-'+now.getMonth()+'-'+now.getDate()+'T'+'08:50';
-        console.log(today.valueOf())
+            today = now.getFullYear()+'-'+now.getMonth()+'-'+now.getDate()+'T'+'06:00';
+
         document.getElementById('dateTimeReservation').value = today
+        defaultDate = today;
     });
 
 
@@ -1121,46 +1139,77 @@
 
     }
     checkIfStopped()
-    //POST HTTP on Backend
+
+    function checkTimeInput(){
+        'use strict'
+        let dateTimeElement = document.getElementById("dateTimeReservation")
+        let dateTimeValue = new Date(dateTimeElement.value)
+        let defaultDateTimeValue = new Date(defaultDate)
+        if(dateTimeValue.getTime() === defaultDateTimeValue.getTime())
+            return false
+        let month = dateTimeValue.getMonth() +1
+        let fullCalenderDate = dateTimeValue.getFullYear()+'-'+month+'-'+dateTimeValue.getDate()
+        //2022-08-16T08:50
+        let minOpeningHours = new Date(fullCalenderDate+" "+weekDayOpenHours[dateTimeValue.getDay()][0])
+        let maxOpeningHours = new Date(fullCalenderDate+" "+weekDayOpenHours[dateTimeValue.getDay()][1])
+        let userSelectedTime = dateTimeValue.getTime()
+        if(userSelectedTime <= minOpeningHours.getTime() || userSelectedTime >= maxOpeningHours.getTime()) {
+            document.getElementById("invalidTimeSign").style.display = "block"
+
+            return false
+        }
+        else{
+            document.getElementById("invalidTimeSign").style.display = "none"
+            return true
+
+        }
+
+
+    }
+
+
     function makeReservation()
     {
-        loading(true);
-        let url = BASE_URL+"/api/ReservationService/noAuth/"+document.getElementById("agbCheck").checked;
-        console.log(url);
-        let xhr = new XMLHttpRequest();
-        xhr.open("POST", url);
+        if(checkIfInputFilled()) {
+            loading(true);
+            let url = BASE_URL + "/api/ReservationService/noAuth/" + document.getElementById("agbCheck").checked;
+            console.log(url);
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", url);
 
-        xhr.setRequestHeader("Accept", "application/json");
-        xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.setRequestHeader("Accept", "application/json");
+            xhr.setRequestHeader("Content-Type", "application/json");
 
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4) {
-                console.log(xhr.responseText);
-                var reservation = JSON.parse(xhr.responseText);
-                console.log(reservation)
-                if (reservation.id != -1) {
-                    loading(false);
-                    makeSuccessVisible()
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    console.log(xhr.responseText);
+                    var reservation = JSON.parse(xhr.responseText);
+                    console.log(reservation)
+                    if (reservation.id != -1) {
+                        loading(false);
+                        makeSuccessVisible()
 
+                    }
                 }
-            }
-        };
+            };
 
-        const id = 0;
-        const guestUserID = document.getElementById("eMail").value;
-        let reservationDate = document.getElementById("dateTimeReservation").value;
-        let numberOfPeople = document.getElementById("numberOfPeople").value;
-        let numberOfKids = document.getElementById("numberOfKids").value;
-        const haveArrived = false;
-        const timestamp = "";
-        let phoneNumber = document.getElementById("phoneNumber").value;
-        let commentFromGuestUser = document.getElementById("commentFromUser").value;
-        let firstName = document.getElementById("firstName").value;
-        let lastName = document.getElementById("lastName").value;
-        let reservation = new Reservation(guestUserID, reservationDate, numberOfPeople, numberOfKids,
-            timestamp, phoneNumber, commentFromGuestUser, firstName, lastName);
-        let reservationJSON = JSON.stringify(reservation);
-        xhr.send(reservationJSON);
+
+            const id = 0;
+            const guestUserID = document.getElementById("eMail").value;
+            let reservationDate = document.getElementById("dateTimeReservation").value;
+            let numberOfPeople = document.getElementById("numberOfPeople").value;
+            let numberOfKids = document.getElementById("numberOfKids").value;
+            const haveArrived = false;
+            const timestamp = "";
+            let phoneNumber = document.getElementById("phoneNumber").value;
+            let commentFromGuestUser = document.getElementById("commentFromUser").value;
+            let firstName = document.getElementById("firstName").value;
+            let lastName = document.getElementById("lastName").value;
+            let reservation = new Reservation(guestUserID, reservationDate, numberOfPeople, numberOfKids,
+                timestamp, phoneNumber, commentFromGuestUser, firstName, lastName);
+            let reservationJSON = JSON.stringify(reservation);
+            xhr.send(reservationJSON);
+        }
 
 
     }
@@ -1175,16 +1224,16 @@
 
     }
 
+
     function makeReservationVisible() {
-        console.log("ACTIVATE")
         var reservationButton = document.getElementById("reservationButton");
-        console.log(checkIfInputFilled())
+
         if (checkIfInputFilled()) {
             reservationButton.style.display = 'block';
             reservationButton.style.marginTop = '4%'
             reservationButton.classList.add('btn_1','mx-auto');
         }else {
-            reservationButtonSettings = 'none';
+            reservationButton.style.display = 'none';
         }
 
     }
@@ -1197,7 +1246,7 @@
     }
 
     function checkIfInputFilled(){
-        var numberOfFilledInputBox = 0;
+        let numberOfFilledInputBox = 0;
         if(document.getElementById("eMail").value !== "")
             numberOfFilledInputBox++;
         if(document.getElementById("numberOfPeople").value !== "")
@@ -1206,9 +1255,9 @@
             numberOfFilledInputBox++;
         if(document.getElementById("phoneNumber").value !== "")
             numberOfFilledInputBox++;
-        /*        console.log("Checkbox coming")
-                console.log(document.getElementById("agbCheck").checked);*/
-        return numberOfFilledInputBox >= 3 && document.getElementById("agbCheck").checked;
+
+        let timeCorrect = checkTimeInput()
+        return numberOfFilledInputBox >= 4 && document.getElementById("agbCheck").checked && timeCorrect;
 
     }
     function isGuestUser(){
