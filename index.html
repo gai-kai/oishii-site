@@ -1148,11 +1148,13 @@
         if(dateTimeValue.getTime() === defaultDateTimeValue.getTime())
             return false
         let month = dateTimeValue.getMonth() +1
-        let fullCalenderDate = dateTimeValue.getFullYear()+'-'+month+'-'+dateTimeValue.getDate()
+        if(month < 10)
+            month = "0"+ month
+        let fullCalenderDate = dateTimeValue.getFullYear()+'-'+month+'-'+dateTimeValue.getDate()+'T'
         //2022-08-16T08:50
-        let test = dateTimeValue.getDay()
-        let minOpeningHours = new Date(fullCalenderDate+" "+weekDayOpenHours[dateTimeValue.getDay()][0])
-        let maxOpeningHours = new Date(fullCalenderDate+" "+weekDayOpenHours[dateTimeValue.getDay()][1])
+        let test = fullCalenderDate+weekDayOpenHours[dateTimeValue.getDay()][0]
+        let minOpeningHours = new Date(fullCalenderDate+weekDayOpenHours[dateTimeValue.getDay()][0])
+        let maxOpeningHours = new Date(fullCalenderDate+weekDayOpenHours[dateTimeValue.getDay()][1])
         let userSelectedTime = dateTimeValue.getTime()
         if(userSelectedTime <= minOpeningHours.getTime() || userSelectedTime >= maxOpeningHours.getTime()) {
             document.getElementById("invalidTimeSign").style.display = "block"
