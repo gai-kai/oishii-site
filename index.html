@@ -287,31 +287,31 @@
                 <div id="reservationForm" class="row g-3">
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input type="text" class="form-control" id="firstName" placeholder="Vorname" onclick="makeReservationVisible()">
+                            <input type="text" class="form-control" id="firstName" placeholder="Vorname" >
                             <label for="firstname">Vorname</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input type="text" class="form-control" id="lastName" placeholder="Nachname"  onclick="makeReservationVisible()">
+                            <input type="text" class="form-control" id="lastName" placeholder="Nachname">
                             <label for="lastName">Nachname</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input type="number" class="form-control" id="numberOfKids" placeholder="0"  onclick="makeReservationVisible()">
+                            <input type="number" class="form-control" id="numberOfKids" placeholder="0">
                             <label for="numberOfKids">Anzahl Kinder (unter 11 Jahren)</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input type="number" class="form-control" id="numberOfPeople" placeholder="0" onclick="makeReservationVisible()">
+                            <input type="number" class="form-control" id="numberOfPeople" placeholder="0">
                             <label for="numberOfPeople">Anzahl Erwachsene</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input type="email" class="form-control" id="eMail" placeholder="Email" onclick="makeReservationVisible()">
+                            <input type="email" class="form-control" id="eMail" placeholder="Email">
                             <label for="eMail">Email</label>
                         </div>
                     </div>
@@ -336,11 +336,14 @@
                     <div class="col-12">
                         <p id="invalidTimeSign"class="ff-secondary text-primary fw-normal" style="display:none;">Die angegeben Zeit ist ungültig. Bitte lesen Sie unsere Öffnungszeiten nochmal durch und vergewissern Sie sich, dass Sie ein korrektes Datum und eine gültige Uhrzeit angeben</p>
                     </div>
-                    <p style="font-weight: bolder; margin-top: 6%"> <input  type="checkbox" id="agbCheck" onclick="makeReservationVisible()"> Ich stimme den <a href=datenschutz.html">AGB</a> und dem Datenschutz zu</p>
+                    <div class="col-12">
+                        <p id="invalidInformation"class="ff-secondary text-primary fw-normal" style="display:none;">Wir brauchen mehr Informationen. E-Mail, Name, Vorname und die Anzahl der Personen. Wenn sie zudem nicht die AGB's  akzeptiert haben, kann auch keine Reservierung getätigt werden</p>
+                    </div>
+                    <p style="font-weight: bolder; margin-top: 6%"> <input  type="checkbox" id="agbCheck"> Ich stimme den <a href=datenschutz.html">AGB</a> und dem Datenschutz zu</p>
                     <p style="font-weight: bolder; margin-top: 1%"> <input type="checkbox"> Ich möchte kostenlose Gutscheine per E-Mail erhalten </p>
 
                     <div class="col-12">
-                        <button id="reservationButton" style="display: none;" class="btn btn-primary w-100 py-3" type="submit" onclick="makeReservation()">Jetzt Reservieren</button>
+                        <button id="reservationButton" class="btn btn-primary w-100 py-3" type="submit" onclick="makeReservation()">Jetzt Reservieren</button>
                     </div>
                     <div class="col-12">
                         <button id="loading" style="display: none;" class="btn btn-primary w-100 py-3" type="submit"  >Einen Moment</button>
@@ -1140,25 +1143,31 @@
     }
     checkIfStopped()
 
+    function displayInvalidTime() {
+        document.getElementById("invalidTimeSign").style.display = "block"
+        document.getElementById("agbCheck").checked = false
+    }
+
     function checkTimeInput(){
         'use strict'
         let dateTimeElement = document.getElementById("dateTimeReservation")
         let dateTimeValue = new Date(dateTimeElement.value)
         let defaultDateTimeValue = new Date(defaultDate)
-        if(dateTimeValue.getTime() === defaultDateTimeValue.getTime())
+        if(dateTimeValue.getTime() === defaultDateTimeValue.getTime()) {
+            displayInvalidTime()
             return false
+        }
         let month = dateTimeValue.getMonth() +1
         if(month < 10)
             month = "0"+ month
         let fullCalenderDate = dateTimeValue.getFullYear()+'-'+month+'-'+dateTimeValue.getDate()+'T'
         //2022-08-16T08:50
-        let test = fullCalenderDate+weekDayOpenHours[dateTimeValue.getDay()][0]
+
         let minOpeningHours = new Date(fullCalenderDate+weekDayOpenHours[dateTimeValue.getDay()][0])
         let maxOpeningHours = new Date(fullCalenderDate+weekDayOpenHours[dateTimeValue.getDay()][1])
         let userSelectedTime = dateTimeValue.getTime()
         if(userSelectedTime <= minOpeningHours.getTime() || userSelectedTime >= maxOpeningHours.getTime()) {
-            document.getElementById("invalidTimeSign").style.display = "block"
-            document.getElementById("agbCheck").checked = false
+            displayInvalidTime()
             return false
         }
         else{
@@ -1248,7 +1257,13 @@
 
     }
 
+    function resetInvalidText(){
+        document.getElementById("invalidInformation").style.display = 'none'
+        document.getElementById("invalidTimeSign").style.display = 'none'
+    }
+
     function checkIfInputFilled(){
+        resetInvalidText()
         let numberOfFilledInputBox = 0;
         if(document.getElementById("eMail").value !== "")
             numberOfFilledInputBox++;
@@ -1260,9 +1275,21 @@
             numberOfFilledInputBox++;
 
         let timeCorrect = checkTimeInput()
-        return numberOfFilledInputBox >= 4 && document.getElementById("agbCheck").checked && timeCorrect;
+        if(!timeCorrect){
+            return false;
+        }
+        let isReservationValid = numberOfFilledInputBox >= 4 && document.getElementById("agbCheck").checked && timeCorrect
+        if(!isReservationValid){
+            showWarnText()
+        }
+        return isReservationValid
 
     }
+
+    function showWarnText(){
+        document.getElementById("invalidInformation").style.display = 'block'
+    }
+
     function isGuestUser(){
 
         var email = document.getElementById("eMail").value;
