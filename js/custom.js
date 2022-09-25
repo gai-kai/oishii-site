@@ -125,6 +125,10 @@ function checkIfStopped(){
 
 
 }
+
+function loadDefaultValuesReservation () {
+    document.getElementById("numberOfKids").value = "0";
+}
 function wantNewsletter(){
     let url = BASE_URL+"/api/GuestUserService/noAuth/createUser/"+document.getElementById("newsletterInput").value;
     console.log(url);
@@ -142,6 +146,7 @@ function wantNewsletter(){
 
 }
 checkIfStopped()
+loadDefaultValuesReservation()
 
 function displayInvalidTime() {
     document.getElementById("invalidTimeSign").style.display = "block"
