@@ -35,11 +35,7 @@
 <body>
 <div class="container-xxl bg-white p-0">
     <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-    </div>
+
     <!-- Spinner End -->
 
 
@@ -73,16 +69,35 @@
     <!-- Reservation Start -->
     <div class="container-xxl py-5 px-0 wow fadeInUp" data-wow-delay="0.1s">
         <div class="row g-0">
-
-            <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
+            <div id="success" class="testimonial-item bg-transparent border rounded p-4" style="display: none;">
+                <div class="row g-3">
+                    <div class="row align-items-center">
+                        <p class="mx-auto" style=" font-weight: bolder;"  id="reservationComplete">
+                            Sie haben Ihre Reservierung erfolgreich bearbeitet, checken Sie Ihr Email-Postfach!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div id="wait" class="testimonial-item bg-transparent border rounded p-4" >
+                <div class="col-12">
+                    <button id="loading" style="display: none;" class="btn btn-primary w-100 py-3" type="submit"  >Einen Moment</button>
+                </div>
+            </div>
+            <div  id="editReservationBody"  class="p-5 wow fadeInUp" data-wow-delay="0.2s">
                 <h5 class="section-title ff-secondary text-start text-primary fw-normal">Ihre Reservierung</h5>
                 <h1 class="text-black-50 mb-4">Bearbeiten Sie hier ihre Reservierung</h1>
                 <form>
                     <div class="row g-3">
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="name">
+                                <input type="text" class="form-control" id="lastName">
                                 <label for="name">Ihr Name</label>
+                            </div>
+                        </div>
+                        <div hidden class="col-md-6">
+                            <div class="form-floating">
+                                <input type="password" class="form-control" id="uuid">
+                                <label for="uuid">uuid</label>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -93,7 +108,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating date" id="date3" data-target-input="nearest">
-                                <input type="datetime-local" class="form-control datetimepicker-input" id="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
+                                <input type="datetime-local" class="form-control datetimepicker-input" id="reservationDate" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
                                 <label for="datetime">Datum und Uhrzeit</label>
                             </div>
                         </div>
@@ -105,7 +120,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="number" class="form-control" id="numberOfAdults">
+                                <input type="number" class="form-control" id="numberOfPeople">
                                 <label for="numberOfAdults">Anzahl Erwachsene</label>
                             </div>
                         </div>
@@ -117,27 +132,27 @@
                         </div>
                         <div class="col-12">
                             <div class="form-floating">
-                                <textarea class="form-control" placeholder="Special Request" id="message" style="height: 100px"></textarea>
+                                <textarea class="form-control" placeholder="Special Request" id="commentFromGuestUser" style="height: 100px"></textarea>
                                 <label for="message">Special Request</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating">
-                                <input type="checkbox" value="moin"> <span>Geburtstag</span>
+                                <input type="checkbox" value="moin" id="birthday"> <span>Geburtstag</span>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating">
-                                <input type="checkbox" value="moin"> <span>Romantisches Date</span>
+                                <input type="checkbox" value="moin" id="romanticDate"> <span>Romantisches Date</span>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating">
-                                <input type="checkbox" value="moin"> <span>Fensterplatz</span>
+                                <input type="checkbox" value="moin" id="windowSeat"> <span>Fensterplatz</span>
                             </div>
                         </div>
                         <div class="col-12">
-                            <button class="btn btn-primary w-100 py-3" type="submit">Änderung bestätigen</button>
+                            <button class="btn btn-primary w-100 py-3" type="submit" onclick="editReservation()">Änderung bestätigen</button>
                         </div>
                     </div>
                 </form>
@@ -226,6 +241,150 @@
 
 <!-- Template Javascript -->
 <script src="js/main.js"></script>
+<script>
+     const BASE_URL = "http://localhost:8888"
+     const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+     const email = urlParams.get('email');
+    const uuid = urlParams.get('uuid');
+    class EditReservation {
+        constructor(uuid,email, lastName, phoneNumber, reservationDate, numberOfPeople, numberOfKids, commentFromGuestUser, birthday, romanticDate,windowSeat) {
+           this.uuid=uuid
+            this.reservationDate = reservationDate;
+            this.numberOfPeople = numberOfPeople;
+            this.numberOfKids = numberOfKids;
+            this.commentFromGuestUser = commentFromGuestUser;
+            this.phoneNumber = phoneNumber;
+            this.email = email
+            this.lastName = lastName;
+            this.birthday = birthday;
+            this.romanticDate = romanticDate;
+            this.windowSeat = windowSeat;
+        }
+    }
+    window.onload = function() {
+         checkIfAuthorized();
+  // var getInput = prompt("Hey type something here: ");
+   
+
+}
+function checkIfAuthorized(){
+    loading(true);
+    //console.log("go!!!!!!!");
+    var reservation="";
+   
+
+    let url = BASE_URL + "/api/ReservationService/noAuth/" +email+"/"+uuid;
+            console.log(url);
+            let xhr = new XMLHttpRequest();
+            xhr.open("GET", url);
+          
+           xhr.setRequestHeader("Accept", "application/json");
+           xhr.setRequestHeader("Content-Type", "application/json");
+          xhr.setRequestHeader("Access-Control-Allow-Origin","*");
+         
+
+            xhr.onreadystatechange = function () {
+              
+                    console.log(xhr.responseText);
+                    var reservation = JSON.parse(xhr.responseText);
+                    localStorage.setItem("reservation",reservation)
+                    console.log("Reservation*:")
+                    console.log(reservation.email)
+                    document.getElementById("reservationDate").value = reservation.reservationDate.split(".")[0];
+                    console.log("value");
+                    console.log(document.getElementById("reservationDate").value);
+                    console.log("dto:");
+                    console.log(reservation.reservationDate);
+                    document.getElementById("uuid").value =reservation.uuid;
+                    document.getElementById("email").value =reservation.email;
+                    document.getElementById("lastName").value =reservation.lastName;
+                    document.getElementById("phoneNumber").value =reservation.phoneNumber;
+                    document.getElementById("numberOfKids").value =reservation.numberOfKids;
+                    document.getElementById("numberOfPeople").value = reservation.numberOfPeople;
+                    document.getElementById("commentFromGuestUser").value = reservation.commentFromGuestUser;
+                    document.getElementById("birthday").checked = reservation.birthday;
+                    document.getElementById("romanticDate").checked = reservation.romanticDate;
+                    document.getElementById("windowSeat").checked = reservation.windowSeat;
+                   
+                    if (reservation.id != -1) {
+                    //    loading(false);
+                       // makeSuccessVisible()
+
+                    }
+                    
+
+                
+            };
+            xhr.send();
+            console.log(localStorage.getItem("reservation"));
+            loading(false);
+           
+}
+
+function editReservation(){
+    loading(true);
+            let url = BASE_URL + "/api/ReservationService/noAuth/edit"
+            console.log(url);
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", url);
+            xhr.setRequestHeader("Accept", "application/json");
+            xhr.setRequestHeader("Content-Type", "application/json");
+
+            xhr.onreadystatechange = function () {
+               
+                    console.log(xhr.responseText);
+                    var success = xhr.responseText;
+                    
+                    if (xhr.responseText=="true") {
+                        loading(false);  
+                        editingSuccessfull(true);
+                    }else{
+                        loading(false);
+                        editingSuccessfull(false); 
+                    }
+                
+            };
+
+
+            let reservationDate = document.getElementById("reservationDate").value;
+            let numberOfPeople = document.getElementById("numberOfPeople").value;
+            let numberOfKids = document.getElementById("numberOfKids").value;
+            let commentFromGuestUser = document.getElementById("commentFromGuestUser").value;
+            let phoneNumber = document.getElementById("phoneNumber").value;
+            let lastName = document.getElementById("lastName").value;
+            let birthday = document.getElementById("birthday").checked;
+            let romanticDate = document.getElementById("romanticDate").checked;
+            let windowSeat = document.getElementById("windowSeat").checked;
+            let email = document.getElementById("email").value;
+            
+            let reservation = new EditReservation(uuid, email, lastName, phoneNumber, reservationDate, numberOfPeople, numberOfKids,
+                  commentFromGuestUser,birthday,romanticDate,windowSeat);
+            let reservationJSON = JSON.stringify(reservation);
+            console.log(reservationJSON);
+            xhr.send(reservationJSON);
+}
+function loading(boolean){
+        if(!boolean){
+            document.getElementById("wait").style.display = 'none'
+            document.getElementById("editReservationBody").style.display = 'block';
+        }else{
+            document.getElementById("wait").style.display = 'block'
+            document.getElementById("editReservationBody").style.display = 'none';
+        }
+
+    }
+function editingSuccessfull(boolean){
+        if(boolean){
+            document.getElementById("success").style.display = 'block'
+            document.getElementById("editReservationBody").style.display = 'none';
+        }else{
+            document.getElementById("loading").style.display = 'none'
+            document.getElementById("editReservationBody").style.display = 'block';
+        } 
+
+    }
+</script>
 </body>
 
 </html>
