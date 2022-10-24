@@ -1,6 +1,6 @@
 
 var defaultDate
-const BASE_URL = "https://server.gaikai.xyz:8888"
+const BASE_URL = "http://localhost:8888"
 /*const weekDayOpenHours = [
     ["12:30", "21:30"],
     ["16:30", "21:30"],
