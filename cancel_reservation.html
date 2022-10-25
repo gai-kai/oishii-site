@@ -42,10 +42,9 @@
   <!-- Navbar & Hero Start -->
   <div class="container-xxl position-relative p-0">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
-      <a href="" class="navbar-brand p-0">
-        <h1 class="text-primary m-0"><i class="fa fa-utensils me-3"></i>Restoran</h1>
-
-      </a>
+      <a href="index.html" class="navbar-brand p-0">
+        <img src="img/oishii-logo.png" alt="Logo">
+    </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
         <span class="fa fa-bars"></span>
       </button>
@@ -69,7 +68,7 @@
   <!-- Reservation Start -->
   <div class="container-xxl py-5 px-0 wow fadeInUp" data-wow-delay="0.1s">
     <div class="row g-0">
-      <div id="success" class="testimonial-item bg-transparent border rounded p-4" style="display: none;">
+      <div id="success" class="testimonial-item bg-transparent border rounded p-4" style="display: none;font-weight: bolder; color:black">
         <div class="row g-3">
           <div class="row align-items-center">
             <p class="mx-auto" style=" font-weight: bolder;"  >
@@ -171,52 +170,8 @@
 
 <!-- Template Javascript -->
 <script src="js/main.js"></script>
-<script>
-  const BASE_URL = "http://localhost:8888"
+<script src="js/cancel_reservation.js"></script>
 
-  window.onload = function() {
-    cancelReservation();
-    // var getInput = prompt("Hey type something here: ");
-
-
-  }
-  function cancelReservation(){
-    // loading(true);
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const email = urlParams.get('email');
-    const uuid = urlParams.get('uuid');
-
-    let url = BASE_URL + "/api/ReservationService/noAuth/cancel/" +email+"/"+uuid;
-    console.log(url);
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST", url);
-
-    xhr.setRequestHeader("Accept", "application/json");
-    xhr.setRequestHeader("Content-Type", "application/json");
-
-
-    xhr.onreadystatechange = function () {
-
-      loading(false);
-    };
-    xhr.send();
-
-
-  }
-
-  function loading(boolean){
-    if(!boolean){
-      document.getElementById("wait").style.display = 'none'
-      document.getElementById("succes").style.display = 'block';
-    }else{
-      document.getElementById("wait").style.display = 'block'
-      document.getElementById("success").style.display = 'none';
-    }
-
-  }
-
-</script>
 </body>
 
 </html>
