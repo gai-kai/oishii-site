@@ -2,16 +2,8 @@
 
 Edit Reservation
 */
-const BASE_URL = "http://localhost:8888"
-/*const weekDayOpenHours = [
-    ["12:30", "21:30"],
-    ["16:30", "21:30"],
-    ["16:30", "21:30"],
-    ["16:30", "21:30"],
-    ["16:30", "21:30"],
-    ["12:00", "21:30"],
-    ["12:00", "21:30"],
-];*/
+const CUSTOMER="oishii"
+const BASE_URL = "https://api.gaikai.xyz/"+CUSTOMER;
 
 const weekDayOpenMonday = [
     [16.30, 22.30]

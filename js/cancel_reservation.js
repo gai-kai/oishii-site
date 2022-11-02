@@ -1,4 +1,5 @@
-const BASE_URL = "http://localhost:8888";
+const CUSTOMER="oishii"
+const BASE_URL = "https://api.gaikai.xyz/"+CUSTOMER;
 
 window.onload = function() {
     cancelReservation();
