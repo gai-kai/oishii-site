@@ -91,26 +91,7 @@ window.addEventListener('load', () => {
 });
 
 
-class Reservation {
-    constructor(email,reservationDate, numberOfPeople, numberOfKids,  timestamp, phoneNumber, commentFromGuestUser, firstName, lastName,isBirthday,isRomanticDate,isWindowSeat) {
-        this.id = 0;
-        this.guestUserID = email;
-        this.reservationDate = reservationDate;
-        this.numberOfPeople = numberOfPeople;
-        this.numberOfKids = numberOfKids;
-        this.haveArrived = false
-        this.timestamp = timestamp;
-        this.phoneNumber = phoneNumber;
-        this.commentFromGuestUser = commentFromGuestUser;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.birthday = isBirthday;
-        this.romanticDate = isRomanticDate;
-        this.windowSeat = isWindowSeat;
-    }
 
-
-}
 
 function checkIfStopped(){
     let url = BASE_URL+"/api/ReservationService/noAuth/stoppedByAdmin";
@@ -204,6 +185,26 @@ function isWeekdayToBook(weekDay, desiredTime){
 
 function makeReservation()
 {
+    class Reservation {
+        constructor(email,reservationDate, numberOfPeople, numberOfKids,  timestamp, phoneNumber, commentFromGuestUser, firstName, lastName,isBirthday,isRomanticDate,isWindowSeat) {
+            this.id = 0;
+            this.guestUserID = email;
+            this.reservationDate = reservationDate;
+            this.numberOfPeople = numberOfPeople;
+            this.numberOfKids = numberOfKids;
+            this.haveArrived = false
+            this.timestamp = timestamp;
+            this.phoneNumber = phoneNumber;
+            this.commentFromGuestUser = commentFromGuestUser;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.birthday = isBirthday;
+            this.romanticDate = isRomanticDate;
+            this.windowSeat = isWindowSeat;
+        }
+    
+    
+    }
     if(checkIfInputFilled()) {
         loading(true);
         let url = BASE_URL + "/api/ReservationService/noAuth/" + document.getElementById("agbCheck").checked;
