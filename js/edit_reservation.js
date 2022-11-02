@@ -88,7 +88,7 @@ function checkIfAuthorized(){
         localStorage.setItem("reservation",reservation)
         console.log("Reservation*:")
         console.log(reservation.email)
-        //document.getElementById("reservationDate").value = reservation.reservationDate.split(".")[0];
+        document.getElementById("reservationDate").value = reservation.reservationDate.split(".")[0];
         console.log("value");
         console.log(document.getElementById("reservationDate").value);
         console.log("dto:");
