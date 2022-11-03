@@ -47,15 +47,14 @@ const weekDayOpenObjects = [
 window.addEventListener('load', () => {
     const now = new Date();
     now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
-    now.setMonth(now.getMonth()+1)
-    //console.log(now.toISOString())
-    if(now.getMonth() < 10)
-        today = now.getFullYear()+'-0'+now.getMonth()+'-'+now.getDate()+'T'+'06:00';
-    else
-        today = now.getFullYear()+'-'+now.getMonth()+'-'+now.getDate()+'T'+'06:00';
+    now.setMonth(now.getMonth())
+    let today = now.toISOString().slice(0,16)
+
 
     document.getElementById('dateTimeReservation').value = today
     defaultDate = today;
+    loadDefaultValuesReservation()
+    checkIfStopped()
 });
 
 
@@ -118,9 +117,6 @@ function checkTimeInput(){
         month = "0"+ month
     //2022-08-16T08:50
 
-    //let minOpeningHours = new Date(fullCalenderDate+weekDayOpenHours[dateTimeValue.getDay()][0])
-    //let maxOpeningHours = new Date(fullCalenderDate+weekDayOpenHours[dateTimeValue.getDay()][1])
-    //let userSelectedTime = dateTimeValue.getTime()
     let desiredDay = dateTimeValue.getDay();
     let desiredTime = dateTimeValue.getHours() + "." + dateTimeValue.getMinutes();
 
@@ -279,12 +275,3 @@ function checkIfInputFilled(){
 
 }
 
-function showWarnText(){
-    document.getElementById("invalidInformation").style.display = 'block'
-}
-
-checkIfStopped()
-loadDefaultValuesReservation()
-window.addEventListener("cookieAlertAccept", function() {
-    alert("cookies accepted")
-})

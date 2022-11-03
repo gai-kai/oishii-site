@@ -120,7 +120,7 @@
                 </div>
                 <div class="col-lg-6">
                     <h5 class="section-title ff-secondary text-start text-primary fw-normal">About Us</h5>
-                    <h1 class="mb-4">Welcome to <p id="name">Oishii Wiesbaden</p></h1>
+                    <h1 class="mb-4">Welcome to <span id="name">Oishii Wiesbaden</span></h1>
                     <p class="mb-4">Hier in der Wilhelmstraße bekommt man zahlreiche leckere Spezialitäten aus dem Land der aufgehenden Sonne serviert, von Sushi bis hin zu Grillgerichten. Ob zum Lunch oder Dinner – die Gäste dürfen hier zum Festpreis so viel bestellen wie sie wollen. Dieser Vorgang wird in dem Wiesbadener Restaurant übrigens ganz innovativ und modern per iPad durchgeführt, was nicht nur angenehm-einfach ist, sondern auch einen gewissen Spaßfaktor bei der Bestellung mit sich bringt.</p>
                     <div class="row g-4 mb-4">
                         <div class="col-sm-6">
@@ -199,6 +199,7 @@
     </div>
     <!-- Regeln End -->
 
+    <a id="price"></a>
     <!-- Opening Hours -->
     <div id="openHours" class="container-xxl pt-5 pb-3">
         <div class="container">
@@ -229,7 +230,7 @@
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="team-item text-center rounded ">
                         <div class="rounded-circle overflow-hidden m-4">
-                            <img class="img-fluid" src="img/team-3.jpg" alt="">
+                            <img class="img-fluid" src="../yantseSite/img/team/team-3.jpg" alt="">
                         </div>
                         <h6 class="mb-0">Kinder (4-11 Jahre)</h6>
                         <h6 class="mb-0">Lunch 10,95€</h6>
@@ -288,7 +289,7 @@
                     <div class="col-md-6">
                         <div class="form-floating">
                             <input type="text" class="form-control" id="firstName" placeholder="Vorname" >
-                            <label for="firstname">Vorname</label>
+                            <label for="firstName">Vorname</label>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -336,16 +337,19 @@
                     <div class="col-md">
                         <div class="form-floating">
                             <input type="checkbox" id="isBirthday"> <span>Geburtstag</span>
+                            <label for="isBirthday">Geburtstag</label>
                         </div>
                     </div>
                     <div class="col-md">
                         <div class="form-floating">
                             <input type="checkbox" id="isRomanticDate"> <span>Romantisches Date</span>
+                            <label for="isRomanticDate">Romantic Date</label>
                         </div>
                     </div>
                     <div class="col-md">
                         <div class="form-floating">
                             <input type="checkbox" id="isWindowSeat"> <span>Fensterplatz</span>
+                            <label for="isWindowSeat">Fenster Platz</label>
                         </div>
                     </div>
                     <div class="col-12">
@@ -354,9 +358,11 @@
                     <div class="col-12">
                         <p id="invalidInformation"class="ff-secondary text-primary fw-normal" style="display:none;">Ihre Angaben sind unvollständig. Zu den Pflichtangaben gehören: E-Mail, Telefonnummer, Name, Vorname, Anzahl der Personen. Außerdem müssen Sie die AGBs akzeptieren damit eine Reservierung erfolgen kann.</p>
                     </div>
-                    <p style="font-weight: bolder; margin-top: 6%"> <input  type="checkbox" id="agbCheck"> Ich stimme den <a href=datenschutz.html">AGB</a> und dem Datenschutz zu</p>
-
-                    <p style="font-weight: bolder; margin-top: 1%"> <input type="checkbox"> Ich möchte kostenlose Gutscheine per E-Mail erhalten </p>
+                    <p style="font-weight: bolder; margin-top: 6%"> <input  type="checkbox" id="agbCheck"> Ich stimme den <a href=datenschutz.html>AGB</a> und dem Datenschutz zu</p>
+                    <label for="agbCheck">AGB akzeptieren</label>
+                    <p style="font-weight: bolder; margin-top: 1%">
+                        <input id=coupons type="checkbox"> Ich möchte kostenlose Gutscheine per E-Mail erhalten </p>
+                    <label for="coupons">Kostenlose Coupons</label>
 
                     <div class="col-12">
                         <button id="reservationButton" class="btn btn-primary w-100 py-3" type="submit" onclick="makeReservation()">Jetzt Reservieren</button>
@@ -381,7 +387,7 @@
                 <div class="modal-body">
                     <!-- 16:9 aspect ratio -->
                     <div class="ratio ratio-16x9">
-                        <iframe class="embed-responsive-item" src="" id="video" allowfullscreen allowscriptaccess="always"
+                        <iframe class="embed-responsive-item" src="" id="video" allowfullscreen
                                 allow="autoplay"></iframe>
                     </div>
                 </div>
@@ -989,8 +995,9 @@
                     <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Newsletter</h4>
                     <p>Abonieren Sie unseren Newsletter und erhalten Sie kostenlose Gutscheine.</p>
                     <div class="position-relative mx-auto" style="max-width: 400px;">
-                        <input id="newsletterInput"class="form-control border-primary w-100 py-3 ps-4 pe-5" type="text" placeholder="Ihre Email">
-                        <button type="button"onclick="wantNewsletter()" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">Eintragen</button>
+                        <input id="newsletterInput" class="form-control border-primary w-100 py-3 ps-4 pe-5" type="text" placeholder="Ihre Email">
+                        <label for="newsletterInput">Newsletter sich holen</label>
+                        <button type="button" onclick="wantNewsletter()" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">Eintragen</button>
                     </div>
                 </div>
                 <div id="newsletterConfirmation" class="col-lg-4 col-md-6" style="display: none;">
@@ -1043,8 +1050,7 @@
 <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 <script src="js/main.js"></script>
 <script src="js/custom.js"></script>
-<script type="module" src="js/cookies.js"></script>
-<script src="js/cookie-consent.js"></script>
+
 
 
 <!--<script type="text/javascript" id="cookiebanner"
