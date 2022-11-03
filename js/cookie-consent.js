@@ -221,3 +221,4 @@ function BootstrapCookieConsentSettings(props) {
         }
     }
 }
+export function BootstrapCookieConsentSettings();
