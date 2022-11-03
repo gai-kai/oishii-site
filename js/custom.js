@@ -45,18 +45,18 @@ const weekDayOpenObjects = [
     weekDayOpenSaturday,
 ]
 
-//import {BootstrapCookieConsentSettings} from "bootstrap-cookie-consent-settings"
+import {BootstrapCookieConsentSettings} from "bootstrap-cookie-consent-settings"
 this.props = {
     autoShowDialog: true, // disable autoShowModal on the privacy policy and legal notice pages, to make these pages readable
     lang: navigator.language, // the language, in which the modal is shown
     languages: [ "de"], // supported languages (in ./content/), defaults to first in array
-    contentURL: "/content", // this URL must contain the dialogs content in the needed languages
+    contentURL: "../content", // this URL must contain the dialogs content in the needed languages
     cookieName: "cookie-consent-settings",  // the name of the cookie in which the configuration is stored as JSON
     cookieStorageDays: 365, // the duration the cookie configuration is stored on the client
     postSelectionCallback: getScript // callback function, called after the user has made his selection
 }
 var cookieSettings = new BootstrapCookieConsentSettings(props)
-// cookieSettings.showDialog();
+ cookieSettings.showDialog();
 
 function getScript() {
     var cookies = cookieSettings.getSettings();
