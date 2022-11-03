@@ -1,4 +1,4 @@
-import {BootstrapCookieConsentSettings} from "./cookie-consent";
+import {BootstrapCookieConsentSettings} from "./cookie-consent.js";
 this.props = {
     autoShowDialog: true, // disable autoShowModal on the privacy policy and legal notice pages, to make these pages readable
     lang: navigator.language, // the language, in which the modal is shown
