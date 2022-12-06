@@ -1,15 +1,7 @@
 var defaultDate
 const CUSTOMER="oishii"
 const BASE_URL = "https://api.gaikai.xyz/"+CUSTOMER;
-/*const weekDayOpenHours = [
-    ["12:30", "21:30"],
-    ["16:30", "21:30"],
-    ["16:30", "21:30"],
-    ["16:30", "21:30"],
-    ["16:30", "21:30"],
-    ["12:00", "21:30"],
-    ["12:00", "21:30"],
-];*/
+
 
 const weekDayOpenMonday = [
     [16.30, 22.30]
@@ -112,6 +104,12 @@ function checkTimeInput(){
         displayInvalidTime()
         return false
     }
+    //Christmas
+    if(dateTimeValue.getDate() === 24 && dateTimeValue.getMonth() === 11){
+        displayHoliday();
+        return false;
+    }
+
     let month = dateTimeValue.getMonth() +1
     if(month < 10)
         month = "0"+ month
@@ -119,12 +117,19 @@ function checkTimeInput(){
 
     let desiredDay = dateTimeValue.getDay();
     let desiredTime = dateTimeValue.getHours() + "." + dateTimeValue.getMinutes();
+    if(dateTimeValue.getDate() === 31 && dateTimeValue.getMonth() === 11)
+        desiredDay = 1;
+
+    if(dateTimeValue.getDate() === 1 && dateTimeValue.getMonth() === 0)
+        desiredDay = 1;
 
     if(isWeekdayToBook(desiredDay, desiredTime)) {
         document.getElementById("invalidTimeSign").style.display = "none"
+        document.getElementById("invalidHoliday").style.display = "none"
         return true
     }
     else{
+        document.getElementById("invalidHoliday").style.display = "none"
         displayInvalidTime()
         return false
 
@@ -143,6 +148,12 @@ function isWeekdayToBook(weekDay, desiredTime){
     }
     return false;
 }
+
+function displayHoliday(){
+    document.getElementById("invalidHoliday").style.display = "block"
+    document.getElementById("agbCheck").checked = false
+}
+
 
 
 function makeReservation()
