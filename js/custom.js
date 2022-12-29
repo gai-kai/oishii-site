@@ -109,6 +109,10 @@ function checkTimeInput(){
         displayHoliday();
         return false;
     }
+    if(dateTimeValue.getDate() === 31 && dateTimeValue.getMonth() === 11){
+        displayHoliday();
+        return false;
+    }
 
     let month = dateTimeValue.getMonth() +1
     if(month < 10)
