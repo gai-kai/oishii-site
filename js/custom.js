@@ -6,7 +6,7 @@ const BASE_URL = "https://api.gaikai.xyz/"+CUSTOMER;
 const weekDayOpenMonday = [
     [16.30, 22.30]
 ]
-const weekDayOpenTuesday = [
+let weekDayOpenTuesday = [
     [16.30, 22.30]
 ]
 const weekDayOpenWednesday = [
@@ -26,7 +26,7 @@ const weekDayOpenSunday = [
     [12.00, 22.30]
 ]
 
-const weekDayOpenObjects = [
+let weekDayOpenObjects = [
     weekDayOpenSunday,
     weekDayOpenMonday,
     weekDayOpenTuesday,
@@ -104,15 +104,23 @@ function checkTimeInput(){
         displayInvalidTime()
         return false
     }
-    //Christmas
-    if(dateTimeValue.getDate() === 24 && dateTimeValue.getMonth() === 11){
-        displayHoliday();
-        return false;
+    //My Valentine
+    if(dateTimeValue.getDate() === 14 && dateTimeValue.getMonth() === 1){
+        weekDayOpenTuesday = [
+            [16.30, 18.00],
+            [19.30, 21.00]
+        ]
+        weekDayOpenObjects = [
+            weekDayOpenSunday,
+            weekDayOpenMonday,
+            weekDayOpenTuesday,
+            weekDayOpenWednesday,
+            weekDayOpenThursday,
+            weekDayOpenFriday,
+            weekDayOpenSaturday,
+        ]
     }
-    if(dateTimeValue.getDate() === 31 && dateTimeValue.getMonth() === 11){
-        displayHoliday();
-        return false;
-    }
+
 
     let month = dateTimeValue.getMonth() +1
     if(month < 10)
