@@ -104,24 +104,6 @@ function checkTimeInput(){
         displayInvalidTime()
         return false
     }
-    //My Valentine
-    if(dateTimeValue.getDate() === 14 && dateTimeValue.getMonth() === 1){
-        weekDayOpenTuesday = [
-            [16.30, 18.00],
-            [19.30, 21.00]
-        ]
-        weekDayOpenObjects = [
-            weekDayOpenSunday,
-            weekDayOpenMonday,
-            weekDayOpenTuesday,
-            weekDayOpenWednesday,
-            weekDayOpenThursday,
-            weekDayOpenFriday,
-            weekDayOpenSaturday,
-        ]
-    }
-
-
     let month = dateTimeValue.getMonth() +1
     if(month < 10)
         month = "0"+ month
