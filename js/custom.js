@@ -201,9 +201,9 @@ function makeReservation()
         let commentFromGuestUser = document.getElementById("commentFromUser").value;
         let firstName = document.getElementById("firstName").value;
         let lastName = document.getElementById("lastName").value;
-        let isBirthday = document.getElementById("isBirthday").checked;
-        let isRomanticDate = document.getElementById("isRomanticDate").checked;
-        let isWindowSeat = document.getElementById("isWindowSeat").checked;
+        let isBirthday = false;
+        let isRomanticDate = false;
+        let isWindowSeat = false;
         let reservation = new Reservation(guestUserID, reservationDate, numberOfPeople, numberOfKids,
             timestamp, phoneNumber, commentFromGuestUser, firstName, lastName,isBirthday,isRomanticDate,isWindowSeat);
         let reservationJSON = JSON.stringify(reservation);
