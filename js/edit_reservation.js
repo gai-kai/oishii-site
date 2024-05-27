@@ -67,7 +67,6 @@ function setFocusToSuccessBox(){
 }
 function checkIfAuthorized(){
     editingSuccessfull(true);
-    //console.log("go!!!!!!!");
     var reservation="";
 
 

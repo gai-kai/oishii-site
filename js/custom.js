@@ -105,12 +105,18 @@ function checkTimeInput(){
         return false
     }
     let month = dateTimeValue.getMonth() +1
-    if(month < 10)
-        month = "0"+ month
-    //2022-08-16T08:50
+    if(month < 10) {
+        month = "0" + month
+    }
 
     let desiredDay = dateTimeValue.getDay();
     let desiredTime = dateTimeValue.getHours() + "." + dateTimeValue.getMinutes();
+
+    if(isDateBetweenStoreHoliday(dateTimeValue)){
+        displayHoliday();
+        return false;
+    }
+
     if(dateTimeValue.getDate() === 31 && dateTimeValue.getMonth() === 11)
         desiredDay = 1;
 
@@ -126,11 +132,29 @@ function checkTimeInput(){
         document.getElementById("invalidHoliday").style.display = "none"
         displayInvalidTime()
         return false
-
     }
 
 
 }
+
+function isDateBetweenStoreHoliday (dateTimeForReservation) {
+    if( !(dateTimeForReservation.getMonth() === 5) ||  !(dateTimeForReservation.getMonth() === 6)) {
+        // Reservation not in the holiday months
+        return false;
+    }
+
+    if(dateTimeForReservation.getMonth() === 5 && dateTimeForReservation.getDate() >= 24) {
+        return true;
+    }
+
+
+    if(dateTimeForReservation.getMonth() === 6 && dateTimeForReservation.getDate() <= 7) {
+        return true;
+    }
+
+}
+
+
 
 function isWeekdayToBook(weekDay, desiredTime){
     let weekDayOpenHour = weekDayOpenObjects[weekDay];
