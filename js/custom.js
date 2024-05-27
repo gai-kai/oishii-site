@@ -138,19 +138,19 @@ function checkTimeInput(){
 }
 
 function isDateBetweenStoreHoliday (dateTimeForReservation) {
-    if( !(dateTimeForReservation.getMonth() === 5) ||  !(dateTimeForReservation.getMonth() === 6)) {
-        // Reservation not in the holiday months
-        return false;
-    }
+    var date = dateTimeForReservation.getMonth()
+    var whops = dateTimeForReservation.getDate()
+
 
     if(dateTimeForReservation.getMonth() === 5 && dateTimeForReservation.getDate() >= 24) {
         return true;
     }
 
-
     if(dateTimeForReservation.getMonth() === 6 && dateTimeForReservation.getDate() <= 7) {
         return true;
     }
+
+    return false;
 
 }
 
