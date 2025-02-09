@@ -4,16 +4,16 @@ const BASE_URL = "https://api.gaikai.xyz/"+CUSTOMER;
 
 
 const weekDayOpenMonday = [
-    [16.30, 22.30]
+    [17.00, 22.30]
 ]
 let weekDayOpenTuesday = [
-    [16.30, 22.30]
+    [17.00, 22.30]
 ]
 const weekDayOpenWednesday = [
-    [16.30, 22.30]
+    [17.00, 22.30]
 ]
 const weekDayOpenThursday = [
-    [16.30, 22.30]
+    [17.00, 22.30]
 ]
 const weekDayOpenFriday = [
     [12.00, 14.30],
@@ -112,8 +112,8 @@ function checkTimeInput(){
     let desiredDay = dateTimeValue.getDay();
     let desiredTime = dateTimeValue.getHours() + "." + dateTimeValue.getMinutes();
 
-    if(isDateBetweenStoreHoliday(dateTimeValue)){
-        displayHoliday();
+    if(isValentine(dateTimeValue)){
+        displayValentine();
         return false;
     }
 
@@ -137,18 +137,15 @@ function checkTimeInput(){
 
 }
 
-function isDateBetweenStoreHoliday (dateTimeForReservation) {
+function isValentine (dateTimeForReservation) {
     var date = dateTimeForReservation.getMonth()
     var whops = dateTimeForReservation.getDate()
 
 
-    if(dateTimeForReservation.getMonth() === 5 && dateTimeForReservation.getDate() >= 24) {
+    if(dateTimeForReservation.getMonth() === 2 && dateTimeForReservation.getDate() >= 14) {
         return true;
     }
 
-    if(dateTimeForReservation.getMonth() === 6 && dateTimeForReservation.getDate() <= 7) {
-        return true;
-    }
 
     return false;
 
@@ -167,7 +164,7 @@ function isWeekdayToBook(weekDay, desiredTime){
     return false;
 }
 
-function displayHoliday(){
+function displayValentine(){
     document.getElementById("invalidHoliday").style.display = "block"
     document.getElementById("agbCheck").checked = false
 }
