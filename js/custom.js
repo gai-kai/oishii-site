@@ -142,7 +142,7 @@ function isValentine (dateTimeForReservation) {
     var whops = dateTimeForReservation.getDate()
 
 
-    if(dateTimeForReservation.getMonth() === 2 && dateTimeForReservation.getDate() >= 14) {
+    if(dateTimeForReservation.getMonth() === 1 && dateTimeForReservation.getDate() >= 14) {
         return true;
     }
 
