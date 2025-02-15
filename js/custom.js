@@ -112,10 +112,6 @@ function checkTimeInput(){
     let desiredDay = dateTimeValue.getDay();
     let desiredTime = dateTimeValue.getHours() + "." + dateTimeValue.getMinutes();
 
-    if(isValentine(dateTimeValue)){
-        displayValentine();
-        return false;
-    }
 
     if(dateTimeValue.getDate() === 31 && dateTimeValue.getMonth() === 11)
         desiredDay = 1;
