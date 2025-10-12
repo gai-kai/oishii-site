@@ -1,6 +1,6 @@
 var defaultDate
 const CUSTOMER="oishii"
-const BASE_URL = "https://api.gaikai.xyz/"+CUSTOMER;
+const BASE_URL = "https://apiv2.gaikai.xyz/"+CUSTOMER;
 
 
 const weekDayOpenMonday = [
@@ -46,13 +46,12 @@ window.addEventListener('load', () => {
     document.getElementById('dateTimeReservation').value = today
     defaultDate = today;
     loadDefaultValuesReservation()
-    checkIfStopped()
 });
 
 
 
 
-function checkIfStopped(){
+/*function checkIfStopped(){
     let url = BASE_URL+"/api/ReservationService/noAuth/stoppedByAdmin";
     console.log(url);
     let xhr = new XMLHttpRequest();
@@ -68,7 +67,7 @@ function checkIfStopped(){
     }
 
 
-}
+}*/
 
 function loadDefaultValuesReservation () {
     document.getElementById("numberOfKids").value = "0";
@@ -81,7 +80,6 @@ function wantNewsletter(){
     xhr.send();
     xhr.onreadystatechange = function () {
         console.log(xhr.responseText)
-
         document.getElementById("newsletterConfirmation").style.display="block";
         document.getElementById("newsletter").style.display = 'none'
 
@@ -170,28 +168,46 @@ function displayValentine(){
 function makeReservation()
 {
     class Reservation {
-        constructor(email,reservationDate, numberOfPeople, numberOfKids,  timestamp, phoneNumber, commentFromGuestUser, firstName, lastName,isBirthday,isRomanticDate,isWindowSeat) {
-            this.id = 0;
-            this.guestUserID = email;
-            this.reservationDate = reservationDate;
-            this.numberOfPeople = numberOfPeople;
-            this.numberOfKids = numberOfKids;
-            this.haveArrived = false
-            this.timestamp = timestamp;
-            this.phoneNumber = phoneNumber;
-            this.commentFromGuestUser = commentFromGuestUser;
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.birthday = isBirthday;
-            this.romanticDate = isRomanticDate;
-            this.windowSeat = isWindowSeat;
+        constructor() {
+            this.numberOfPeople = 0;
+            this.numberOfKids = 0;
+            this.haveArrived = false;
+            this.timestamp = null;
+            this.reservationDate = null;
+            this.phoneNumber = "";
+            this.firstName = "";
+            this.lastName = "";
+            this.uuid = "";
+            this.guestUserID = "";
+            this.commentFromGuestUser = "";
+            this.wantsNewsletter = false;
+            this.wantsCouponCampaign = false;
+            this.reservationStatus = "ACCEPTED";
+            this.agbaccepted = false;
+            this.birthday = false;
+            this.romanticDate = false;
+            this.windowSeat = false;
+            this.arrived = false;
         }
-    
-    
+
+        setEmail(email) { this.guestUserID = email; return this; }
+        setReservationDate(date) { this.reservationDate = date; return this; }
+        setNumberOfPeople(num) { this.numberOfPeople = num; return this; }
+        setNumberOfKids(num) { this.numberOfKids = num; return this; }
+        setPhoneNumber(phone) { this.phoneNumber = phone; return this; }
+        setFirstName(name) { this.firstName = name; return this; }
+        setLastName(name) { this.lastName = name; return this; }
+        setComment(comment) { this.commentFromGuestUser = comment; return this; }
+        setNewsletter(wants) { this.wantsNewsletter = wants; return this; }
+        setCouponCampaign(wants) { this.wantsCouponCampaign = wants; return this; }
+        setAgbAccepted(accepted) { this.agbaccepted = accepted; return this; }
+        setBirthday(isBirthday) { this.birthday = isBirthday; return this; }
+        setRomanticDate(isRomantic) { this.romanticDate = isRomantic; return this; }
+        setWindowSeat(isWindow) { this.windowSeat = isWindow; return this; }
     }
     if(checkIfInputFilled()) {
         loading(true);
-        let url = BASE_URL + "/api/ReservationService/noAuth/" + document.getElementById("agbCheck").checked;
+        let url = BASE_URL + "/api/v2/noauth/reservations";
         console.log(url);
         let xhr = new XMLHttpRequest();
         xhr.open("POST", url);
@@ -212,13 +228,10 @@ function makeReservation()
             }
         };
 
-
-
         const guestUserID = document.getElementById("eMail").value;
         let reservationDate = document.getElementById("dateTimeReservation").value;
         let numberOfPeople = document.getElementById("numberOfPeople").value;
         let numberOfKids = document.getElementById("numberOfKids").value;
-        const timestamp = "";
         let phoneNumber = document.getElementById("phoneNumber").value;
         let commentFromGuestUser = document.getElementById("commentFromUser").value;
         let firstName = document.getElementById("firstName").value;
@@ -226,8 +239,21 @@ function makeReservation()
         let isBirthday = false;
         let isRomanticDate = false;
         let isWindowSeat = false;
-        let reservation = new Reservation(guestUserID, reservationDate, numberOfPeople, numberOfKids,
-            timestamp, phoneNumber, commentFromGuestUser, firstName, lastName,isBirthday,isRomanticDate,isWindowSeat);
+        let wantsCouponCampaign = document.getElementById("coupons").checked;
+        const reservation = new Reservation()
+            .setEmail(guestUserID)
+            .setReservationDate(reservationDate)
+            .setNumberOfPeople(numberOfPeople)
+            .setNumberOfKids(numberOfKids)
+            .setPhoneNumber(phoneNumber)
+            .setComment(commentFromGuestUser)
+            .setFirstName(firstName)
+            .setLastName(lastName)
+            .setBirthday(isBirthday)
+            .setRomanticDate(isRomanticDate)
+            .setWindowSeat(isWindowSeat)
+            .setCouponCampaign(wantsCouponCampaign)
+            .setNewsletter(false);
         let reservationJSON = JSON.stringify(reservation);
         xhr.send(reservationJSON);
     }
