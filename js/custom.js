@@ -20,7 +20,7 @@ const weekDayOpenFriday = [
     [17.30, 22.30]
 ]
 const weekDayOpenSaturday = [
-    [12.00, 22.30]
+    [12.00, 18.00]
 ]
 const weekDayOpenSunday = [
     [12.00, 22.30]
