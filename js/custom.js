@@ -46,7 +46,7 @@ window.addEventListener('load', () => {
     document.getElementById('dateTimeReservation').value = today
     defaultDate = today;
     loadDefaultValuesReservation()
-    checkifstopped();
+    checkIfstopped();
 });
 
 
