@@ -51,10 +51,10 @@ window.addEventListener('load', () => {
 
 
 
-/*function checkIfStopped(){
+function checkIfStopped(){
     let url = BASE_URL+"/api/ReservationService/noAuth/stoppedByAdmin";
     console.log(url);
-    let xhr = new XMLHttpRequest();
+   /* let xhr = new XMLHttpRequest();
     xhr.open("GET", url);
     xhr.send();
     xhr.onreadystatechange = function () {
@@ -66,8 +66,12 @@ window.addEventListener('load', () => {
         }
     }
 
+*/
 
-}*/
+document.getElementById("failure").style.display="block";
+            document.getElementById("reservationForm").style.display = 'none'
+
+}
 
 function loadDefaultValuesReservation () {
     document.getElementById("numberOfKids").value = "0";
