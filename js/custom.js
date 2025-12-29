@@ -116,8 +116,9 @@ function checkTimeInput(){
     let desiredTime = dateTimeValue.getHours() + "." + dateTimeValue.getMinutes();
 
 
-    if(dateTimeValue.getDate() === 31 && dateTimeValue.getMonth() === 11)
-        desiredDay = 1;
+    if(dateTimeValue.getDate() === 31 && dateTimeValue.getMonth() === 11){
+        return false;
+    }
 
     if(dateTimeValue.getDate() === 1 && dateTimeValue.getMonth() === 0)
         desiredDay = 1;
