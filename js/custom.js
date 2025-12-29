@@ -115,9 +115,14 @@ function checkTimeInput(){
     let desiredDay = dateTimeValue.getDay();
     let desiredTime = dateTimeValue.getHours() + "." + dateTimeValue.getMinutes();
 
+    if(isSilvester(dateTimeValue)){
+        displayValentine();
+        return false;
+    }
+
 
     if(dateTimeValue.getDate() === 31 && dateTimeValue.getMonth() === 11){
-        return false;
+        desiredDay = 1;
     }
 
     if(dateTimeValue.getDate() === 1 && dateTimeValue.getMonth() === 0)
@@ -143,6 +148,20 @@ function isValentine (dateTimeForReservation) {
 
 
     if(dateTimeForReservation.getMonth() === 1 && dateTimeForReservation.getDate() >= 14) {
+        return true;
+    }
+
+
+    return false;
+
+}
+
+function isSilvester (dateTimeForReservation) {
+    var date = dateTimeForReservation.getMonth()
+    var whops = dateTimeForReservation.getDate()
+
+
+    if(dateTimeForReservation.getMonth() === 11 && dateTimeForReservation.getDate() >= 31) {
         return true;
     }
 
