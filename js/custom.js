@@ -119,10 +119,7 @@ function checkTimeInput(){
         displayValentine();
         return false;
     }
-    if(isValentine(dateTimeValue)){
-        displayValentine();
-        return false;
-    }
+
 
 
     if(dateTimeValue.getDate() === 31 && dateTimeValue.getMonth() === 11){
