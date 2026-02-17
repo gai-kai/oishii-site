@@ -4,16 +4,16 @@ const BASE_URL = "https://apiv2.gaikai.xyz/"+CUSTOMER;
 
 
 const weekDayOpenMonday = [
-    [17.00, 22.30]
+    [16.30, 22.30]
 ]
 let weekDayOpenTuesday = [
-    [17.00, 22.30]
+    [16.30, 22.30]
 ]
 const weekDayOpenWednesday = [
-    [17.00, 22.30]
+    [16.30, 22.30]
 ]
 const weekDayOpenThursday = [
-    [17.00, 22.30]
+    [16.30, 22.30]
 ]
 const weekDayOpenFriday = [
     [12.00, 14.30],
