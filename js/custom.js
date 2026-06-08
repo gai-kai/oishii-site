@@ -120,6 +120,11 @@ function checkTimeInput(){
         return false;
     }
 
+    if(isHoliday(dateTimeValue)){
+        displayValentine();
+        return true;
+    }
+
 
 
     if(dateTimeValue.getDate() === 31 && dateTimeValue.getMonth() === 11){
@@ -144,6 +149,24 @@ function checkTimeInput(){
         return false
     }
 
+
+}
+
+function isHoliday(dateTime){
+    const month = dateTimeForReservation.getMonth(); // 0 = Jan, 5 = Jun, 6 = Jul
+    const day = dateTimeForReservation.getDate();
+
+    // June 20 - June 30
+    if (month === 5 && day >= 20) {
+        return true;
+    }
+
+    // July 1 - July 6
+    if (month === 6 && day <= 6) {
+        return true;
+    }
+
+    return false;
 
 }
 
