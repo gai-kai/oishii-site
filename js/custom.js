@@ -152,7 +152,7 @@ function checkTimeInput(){
 
 }
 
-function isHoliday(dateTime){
+function isHoliday(dateTimeForReservation){
     const month = dateTimeForReservation.getMonth(); // 0 = Jan, 5 = Jun, 6 = Jul
     const day = dateTimeForReservation.getDate();
 
